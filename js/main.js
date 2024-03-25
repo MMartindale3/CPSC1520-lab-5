@@ -12,16 +12,16 @@ Steps 1-3 READ THE PDF!
   videoGameForm.addEventListener('submit', (event) => {
     event.preventDefault();
     let platform = event.target.elements['platform-family'].value.toLowerCase();
-    filterGames(platform)
+    filterGames(platform);
   });
 
   function filterGames(params) {
-    allGameListItems.forEach(element => {
-      if (element.innerText.toLowerCase().includes(params)) {
-        element.classList.remove("d-none");        
-      } 
+    allGameListItems.forEach(e => {
+      if (e.innerText.toLowerCase().includes(params)) {
+        e.classList.remove("hidden-item");
+      }
       else {
-        element.classList.add("d-none");        
+        e.classList.add("hidden-item");
       }
     });
   }
@@ -31,7 +31,23 @@ Steps 1-3 READ THE PDF!
   */
   allGameList.addEventListener('click', (event) => {
     let game = event.target.innerText;
+    addToFavouriteGames(game);
   });
+
+  function addToFavouriteGames(game) {
+    myGames.push(game);
+
+    renderFavouriteList();
+  }
+
+  function renderFavouriteList() {
+    myGameList.innerHTML = "";
+
+    myGames.forEach(element => {
+      const template = `<li class="list-group-item">${element}</li>`;
+      myGameList.innerHTML += template;
+    });
+  }
 
   // event listener for step 3
   myGameList.addEventListener('click', (event) => {
