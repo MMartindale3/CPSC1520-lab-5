@@ -18,13 +18,11 @@ Steps 1-3 READ THE PDF!
   function filterGames(params) {
     allGameListItems.forEach(element => {
       if (element.innerText.toLowerCase().includes(params)) {
-        console.log(element.innerText);
-        
+        element.classList.remove("d-none");        
       } 
-      // else {
-      //   console.log("not here");
-        
-      // }
+      else {
+        element.classList.add("d-none");        
+      }
     });
   }
   // event listener for step 2
