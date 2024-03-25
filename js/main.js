@@ -12,15 +12,19 @@ Steps 1-3 READ THE PDF!
   videoGameForm.addEventListener('submit', (event) => {
     event.preventDefault();
     let platform = event.target.elements['platform-family'].value.toLowerCase();
+    filterGames(platform)
   });
 
   function filterGames(params) {
     allGameListItems.forEach(element => {
-      if (condition) {
+      if (element.innerText.toLowerCase().includes(params)) {
+        console.log(element.innerText);
         
-      } else {
+      } 
+      // else {
+      //   console.log("not here");
         
-      }
+      // }
     });
   }
   // event listener for step 2
