@@ -14,6 +14,15 @@ Steps 1-3 READ THE PDF!
     let platform = event.target.elements['platform-family'].value.toLowerCase();
   });
 
+  function filterGames(params) {
+    allGameListItems.forEach(element => {
+      if (condition) {
+        
+      } else {
+        
+      }
+    });
+  }
   // event listener for step 2
   /* HTML for step 2 to add to the list
   <li class="list-group-item">VIDEO GAME NAME HERE</li>
