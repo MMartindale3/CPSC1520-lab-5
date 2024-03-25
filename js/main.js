@@ -36,13 +36,11 @@ Steps 1-3 READ THE PDF!
 
   function addToFavouriteGames(game) {
     myGames.push(game);
-
     renderFavouriteList();
   }
 
   function renderFavouriteList() {
     myGameList.innerHTML = "";
-
     myGames.forEach(element => {
       const template = `<li class="list-group-item">${element}</li>`;
       myGameList.innerHTML += template;
@@ -52,5 +50,12 @@ Steps 1-3 READ THE PDF!
   // event listener for step 3
   myGameList.addEventListener('click', (event) => {
     let favGame = event.target.innerText;
+    removeFromFavouriteGames(favGame)
   });
+
+  function removeFromFavouriteGames(game) {
+    var gameIndex = myGames.indexOf(game);
+    myGames.splice(gameIndex, 1);
+    renderFavouriteList();
+  }
 })();
